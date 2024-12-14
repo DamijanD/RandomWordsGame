@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.12.35527.113
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RandomWordsWeb", "WA_RazorPages\RandomWordsWeb.csproj", "{1B1DBF9C-F9D8-44D7-BE19-053A8DFBCB36}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RandomWordsWeb", "RandomWordsWeb\RandomWordsWeb.csproj", "{1B1DBF9C-F9D8-44D7-BE19-053A8DFBCB36}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RandomWordsService", "WSData2\RandomWordsService.csproj", "{A5C6C2C2-9695-4644-A045-F001D003E695}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RandomWordsService", "RandomWordsService\RandomWordsService.csproj", "{A5C6C2C2-9695-4644-A045-F001D003E695}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

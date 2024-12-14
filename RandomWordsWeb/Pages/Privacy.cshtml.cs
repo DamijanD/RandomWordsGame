@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace WA_RazorPages.Pages
+namespace RandomWordsWeb.Pages
 {
     public class PrivacyModel : PageModel
     {

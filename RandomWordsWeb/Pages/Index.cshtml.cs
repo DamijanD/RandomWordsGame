@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Newtonsoft.Json;
 
-namespace WA_RazorPages.Pages
+namespace RandomWordsWeb.Pages
 {
     public class IndexModel : PageModel
     {
