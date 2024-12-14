@@ -1,4 +1,4 @@
-using WSData2;
+using RandomWordsService;
 
 var builder = WebApplication.CreateBuilder(args);
 

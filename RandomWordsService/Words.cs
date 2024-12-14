@@ -1,4 +1,4 @@
-﻿namespace WSData2
+﻿namespace RandomWordsService
 {
     public class Words
     {

@@ -1,0 +1,6 @@
+@RandomWordsService_HostAddress = http://localhost:5157
+
+GET {{RandomWordsService_HostAddress}}/GetRandomWords/
+Accept: application/json
+
+###
