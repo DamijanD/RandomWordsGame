@@ -29,9 +29,9 @@ namespace RandomWordsWeb.Pages
         {
             if (Cnt == 0)
             {
-                Cnt = 3;
+                Cnt = 10;
                 Len = 3;
-                MaxLen = 20;
+                MaxLen = 12;
                 Speed = 1.5;
             }
         }

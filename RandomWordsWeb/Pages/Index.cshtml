@@ -6,18 +6,23 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Zapomni si, če si moreš</h1>
+    <h1 class="display-5">Zapomni si, če si moreš</h1>
     <p></p>
 
-    <div class="display-4">
+    <div class="display-5">
         <form method="post">
+            <label asp-for="Cnt">št. besed</label>
             <input id="inpCnt" asp-for="Cnt" />
+            <label asp-for="Len">vsaj</label>
             <input asp-for="Len" />
+            <label asp-for="MaxLen">največ</label>
             <input asp-for="MaxLen" />
+            <label asp-for="Speed">sek. na besedo</label>
             <input id="inpSpeed" asp-for="Speed" />
-
-            <input type="submit" />
-            <img onclick="showHideWords(true);" src="question.png">
+            <div>
+                <input type="submit" />
+                <img onclick="showHideWords(true);" src="question.png">
+            </div>
 
             <div id="time">
             </div>
@@ -27,7 +32,11 @@
                 <div id="results">
                 @foreach (var w in Model.Words)
                 {
-                     <span><strong>@w</strong></span>
+                        <span>
+                            <strong><a href="https://viri.cjvt.si/gigafida/Concordance/Search?Query=@w.ToLower()" target="_blank">@w</a></strong>
+                            <a class="afran" href="https://fran.si/iskanje?Query=@w.ToLower()" target="_blank">f</a>
+                            <a class="afran" href="http://bos.zrc-sazu.si/cgi_new/neva.exe?name=ssbsj&expression=@w.ToLower()" target="_blank">b</a>
+                        </span>
                 }
                 </div>
 
@@ -62,7 +71,6 @@
                         else {
                             d.style.display = 'none';
                         }
-                        //d.style.visibility = 'hidden';
                     }
                 </script>
             }

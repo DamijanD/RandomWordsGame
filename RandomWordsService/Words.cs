@@ -8,6 +8,7 @@
 
         private void LoadWords()
         {
+            // file source: http://bos.zrc-sazu.si/besede.html
             var txt = System.IO.File.ReadAllLines(".\\sbsj.txt");
             for (int i = 0; i < txt.Length; i++)
             {
@@ -17,7 +18,7 @@
                     txt[i] = txt[i].Substring(0, pos-1);
                 }
             }
-            _wordList = new List<string>(txt);
+            _wordList = new List<string>(txt).Where(x => !x.Contains(".")).ToList();
         }
 
         public List<string> GetWords(int cnt, int minLen = 0, int maxLen=99)
