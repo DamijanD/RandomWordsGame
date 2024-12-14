@@ -7,10 +7,12 @@ namespace RandomWordsWeb.Pages
     public class IndexModel : PageModel
     {
         private readonly ILogger<IndexModel> _logger;
+        private readonly IConfiguration _configuration;
 
-        public IndexModel(ILogger<IndexModel> logger)
+        public IndexModel(ILogger<IndexModel> logger, IConfiguration configuration)
         {
             _logger = logger;
+            _configuration = configuration;
             Words = new List<string>();
         }
 
@@ -49,9 +51,10 @@ namespace RandomWordsWeb.Pages
 
         private async Task GetWords(int cnt, int minLen, int maxLen)
         {
+            var host = _configuration["WordsWebServiceHost"]; 
             using (var httpClient = new HttpClient())
             {
-                using (HttpResponseMessage response = await httpClient.GetAsync($"http://localhost:5157/words/{{cnt, minLen, maxLen}}?cnt={cnt}&minLen={minLen}&maxLen={maxLen}"))
+                using (HttpResponseMessage response = await httpClient.GetAsync($"{host}/words/{{cnt, minLen, maxLen}}?cnt={cnt}&minLen={minLen}&maxLen={maxLen}"))
                 {
                     string apiResponse = await response.Content.ReadAsStringAsync();
                     Words = JsonConvert.DeserializeObject<List<string>>(apiResponse).Select(x => x.ToUpper()).ToList();
@@ -60,63 +63,5 @@ namespace RandomWordsWeb.Pages
         }
 
 
-
-
-
-
-
-
-
-
-
-
-        public async void OnPostCallAPI()
-        {
-            await GetWords(2, 2, 2);
-
-            /*string Baseurl = "https://localhost:44309/WeatherForecast";
-
-            try
-            {
-                using (var client = new HttpClient())
-                {
-                    HttpRequestMessage request = new HttpRequestMessage();
-                    request.RequestUri = new Uri(Baseurl);
-                    request.Method = HttpMethod.Get;
-                    request.Headers.Add("SecureApiKey", "12345");
-                    HttpResponseMessage response = await client.SendAsync(request);
-                    var responseString = await response.Content.ReadAsStringAsync();
-                    var statusCode = response.StatusCode;
-                    if (response.IsSuccessStatusCode)
-                    {
-                        //API call success, Do your action
-                    }
-
-                    else
-                    {
-                        //API Call Failed, Check Error Details
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-
-                throw;
-            }*/
-        }
-
-
-        public async Task<JsonResult> OnGetWordsAsync()
-        {
-            using (var httpClient = new HttpClient())
-            {
-                using (HttpResponseMessage response = await httpClient.GetAsync("http://localhost:5157/words/{cnt, minLen}?cnt=2&minLen=2"))
-                {
-                    string apiResponse = await response.Content.ReadAsStringAsync();
-                    Words = JsonConvert.DeserializeObject<List<string>>(apiResponse);
-                }
-            }
-            return new JsonResult(Words);
-        }
     }
 }
