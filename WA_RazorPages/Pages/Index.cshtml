@@ -1,0 +1,73 @@
+﻿@page
+@model IndexModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "Naključnik";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Zapomni si če si moreš</h1>
+    <p></p>
+
+    <div class="display-4">
+        <form method="post">
+            <input id="inpCnt" asp-for="Cnt" />
+            <input asp-for="Len" />
+            <input asp-for="MaxLen" />
+            <input id="inpSpeed" asp-for="Speed" />
+
+            <input type="submit" />
+            <img onclick="showHideWords(true);" src="question.png">
+
+            <div id="time">
+            </div>
+
+            @if (Model.Words != null && Model.Words.Count > 0)
+            {
+                <div id="results">
+                @foreach (var w in Model.Words)
+                {
+                     <span><strong>@w</strong></span>
+                }
+                </div>
+
+                <script language="javascript">
+                    let inpCnt = document.getElementById('inpCnt').value;
+                    let inpSpeed = document.getElementById('inpSpeed').value;
+                    
+                    let intervalId = setInterval(stat, 1000);
+                    let sec = Math.floor(inpCnt*inpSpeed);
+                    document.getElementById('time').innerText = sec;
+                    
+                    function stat()
+                    {
+                        sec--;
+                        var d = document.getElementById('time');
+                        d.innerText = sec;
+
+                        if (sec < 0)
+                        {
+                            showHideWords(false);
+                            clearInterval(intervalId);
+                            d.innerText = "";
+                        }
+                    }
+
+                    function showHideWords(show)
+                    {
+                        var d = document.getElementById('results');
+                        if (show) {
+                            d.style.display = 'block';
+                        }
+                        else {
+                            d.style.display = 'none';
+                        }
+                        //d.style.visibility = 'hidden';
+                    }
+                </script>
+            }
+        </form>
+        
+    </div>
+
+</div>
