@@ -57,3 +57,7 @@ a:active {
 .afran {
     font-size: 14px;
 }
+
+.narrow {
+    width:60px;
+}

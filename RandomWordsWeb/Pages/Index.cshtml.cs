@@ -34,7 +34,7 @@ namespace RandomWordsWeb.Pages
                 Cnt = 10;
                 Len = 3;
                 MaxLen = 12;
-                Speed = 1.5;
+                Speed = 2;
             }
         }
 

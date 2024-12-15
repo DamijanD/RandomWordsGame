@@ -12,18 +12,17 @@
     <div class="display-5">
         <form method="post">
             <label asp-for="Cnt">št. besed</label>
-            <input id="inpCnt" asp-for="Cnt" />
+            <input id="inpCnt" asp-for="Cnt" class="narrow" />
             <label asp-for="Len">vsaj</label>
-            <input asp-for="Len" />
+            <input asp-for="Len" class="narrow" />
             <label asp-for="MaxLen">največ</label>
-            <input asp-for="MaxLen" />
+            <input asp-for="MaxLen" class="narrow" />
             <label asp-for="Speed">sek. na besedo</label>
-            <input id="inpSpeed" asp-for="Speed" />
-            <div>
-                <input type="submit" />
-                <img onclick="showHideWords(true);" src="question.png">
-            </div>
-
+            <input id="inpSpeed" asp-for="Speed" class="narrow" />
+            &nbsp;&nbsp;
+            <input type="submit" value="Prikaži" />
+            <img onclick="showHideWords(true);" src="question.png">
+            
             <div id="time">
             </div>
 

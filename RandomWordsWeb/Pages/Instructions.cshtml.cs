@@ -3,11 +3,11 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace RandomWordsWeb.Pages
 {
-    public class PrivacyModel : PageModel
+    public class InstructionsModel : PageModel
     {
-        private readonly ILogger<PrivacyModel> _logger;
+        private readonly ILogger<InstructionsModel> _logger;
 
-        public PrivacyModel(ILogger<PrivacyModel> logger)
+        public InstructionsModel(ILogger<InstructionsModel> logger)
         {
             _logger = logger;
         }
