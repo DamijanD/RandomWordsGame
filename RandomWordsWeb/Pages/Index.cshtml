@@ -41,7 +41,7 @@
 
                 <script language="javascript">
                     let inpCnt = document.getElementById('inpCnt').value;
-                    let inpSpeed = document.getElementById('inpSpeed').value;
+                    let inpSpeed = document.getElementById('inpSpeed').value.replace(',', '.');
                     
                     let intervalId = setInterval(stat, 1000);
                     let sec = Math.floor(inpCnt*inpSpeed);
