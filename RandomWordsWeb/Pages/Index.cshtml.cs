@@ -35,6 +35,7 @@ namespace RandomWordsWeb.Pages
                 Len = 3;
                 MaxLen = 12;
                 Speed = 1.5;
+                _logger.LogInformation("Get {0}", this.Request.Host.ToString());
             }
         }
 
@@ -44,6 +45,7 @@ namespace RandomWordsWeb.Pages
             {
                 return Page();
             }
+            _logger.LogInformation("Post {0} {1} {2} {3}", this.Request.Host.ToString(), Cnt, Len, MaxLen);
             await GetWords(Cnt, Len, MaxLen);
 
             return Page();
